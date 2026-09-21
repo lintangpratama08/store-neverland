@@ -14,7 +14,7 @@ Powered by Bang Put & Mpink.
 ## Jalankan lokal
 
 1. Salin `.env.example` menjadi `.env`.
-2. Isi kredensial PostgreSQL dan buat database `jb_akun_neverland`.
+2. Isi kredensial PostgreSQL dan buat database jb_akun_neverland. Database ini khusus Neverland Store dan tidak boleh memakai database Neverland utama.
 3. Jalankan `composer install` dan `npm install`.
 4. Jalankan `php artisan key:generate`.
 5. Jalankan `php artisan migrate --seed`.
@@ -44,5 +44,7 @@ Admin menambah listing dari dashboard, termasuk rank, harga, status, dan galeri.
 ## Catatan produksi
 
 - Ganti `WHATSAPP_NUMBER`, password admin, dan `APP_KEY` sebelum deploy.
-- Jalankan `php artisan storage:link` agar galeri upload tampil.
+- Jalankan php artisan storage:link agar logo, banner, dan galeri upload tampil dari /storage/image/....
+- Banner utama tersedia di storage/app/public/image/banner/neverland-store-hero.png.
+- Domain produksi yang disiapkan: store.neverlandfc.my.id.
 - Aktifkan HTTPS dan gunakan kredensial PostgreSQL khusus aplikasi.

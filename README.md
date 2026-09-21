@@ -8,8 +8,8 @@ Dokumentasi setup ada di [docs/PROJECT.md](docs/PROJECT.md).
 
 ## Jalankan di Laragon
 
-1. Start PostgreSQL dan buat database neverland.
-2. Pastikan .env memakai DB_CONNECTION=pgsql, DB_HOST=127.0.0.1, DB_PORT=5432, username postgres.
+1. Start PostgreSQL dan buat database jb_akun_neverland khusus store. Database ini terpisah dari database Neverland utama.
+2. Pastikan .env memakai DB_CONNECTION=pgsql, DB_HOST=127.0.0.1, DB_PORT=5432, DB_DATABASE=jb_akun_neverland, username postgres.
 3. Jalankan:
 
     composer install
@@ -19,6 +19,8 @@ Dokumentasi setup ada di [docs/PROJECT.md](docs/PROJECT.md).
     npm run dev
 
 Untuk asset production gunakan npm run build.
+
+Asset logo dan banner publik berada di storage/app/public/image, lalu tampil melalui php artisan storage:link.
 
 Seed login:
 
