@@ -117,3 +117,34 @@ button:focus-visible,a:focus-visible{outline:2px solid #527af5;outline-offset:3p
 .reset-data-strip{justify-content:flex-end;margin:-20px 0 20px}
 @media(max-width:1100px){.responsive-public-nav{flex-wrap:wrap;gap:14px}.responsive-public-nav .public-links{flex-wrap:wrap}}
 @media(max-width:640px){.sidebar.open{width:min(320px,100%);height:100dvh;inset:0 auto 0 0;box-shadow:0 0 0 100vmax #07102099}.sidebar-close{display:flex;color:#fff}.nav-actions .nav-profile{display:flex}.responsive-public-nav.menu-open .nav-actions{flex-wrap:wrap}.nav-profile{max-width:165px}}
+
+/* Neverland auth: one focused glass card with a lightweight 3D atmosphere. */
+.auth-screen{align-items:center;background:#06101f;display:flex;isolation:isolate;overflow:hidden;padding:24px;position:relative}
+.auth-screen:before{background:radial-gradient(circle at 18% 18%,rgba(117,220,239,.2),transparent 28%),radial-gradient(circle at 82% 72%,rgba(112,119,243,.2),transparent 30%),linear-gradient(135deg,#06101f 0%,#0b1830 55%,#091323 100%);content:'';inset:0;position:absolute;z-index:-3}
+.auth-screen:after{border:1px solid rgba(159,229,240,.22);border-radius:50%;box-shadow:0 0 0 42px rgba(159,229,240,.03),0 0 0 84px rgba(159,229,240,.02);content:'';height:46vw;max-height:650px;max-width:650px;position:absolute;right:-13vw;top:-16vw;width:46vw;z-index:-2;animation:auth-orbit 20s linear infinite}
+.auth-stage{align-items:center;display:flex;justify-content:center;max-width:none;min-height:calc(100vh - 48px);position:relative;width:100%;z-index:1}
+.auth-brand{left:0;position:absolute;top:0}
+.auth-visual{display:none}
+.auth-form-card{animation:auth-card-in .65s cubic-bezier(.2,.8,.2,1) both;background:linear-gradient(145deg,rgba(20,39,66,.84),rgba(7,17,32,.78));backdrop-filter:blur(24px) saturate(1.3);border:1px solid rgba(169,229,240,.25);border-radius:28px;box-shadow:0 34px 90px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1);color:#f6fbff;max-width:414px;overflow:hidden;padding:30px;position:relative;width:100%}
+.auth-form-card:before{background-image:linear-gradient(rgba(159,229,240,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(159,229,240,.06) 1px,transparent 1px);background-size:34px 34px;content:'';inset:0;mask-image:linear-gradient(135deg,rgba(0,0,0,.55),transparent 68%);pointer-events:none;position:absolute}
+.auth-form-card:after{background:rgba(159,229,240,.14);border-radius:50%;box-shadow:0 0 60px rgba(159,229,240,.25);content:'';height:170px;position:absolute;right:-95px;top:-95px;width:170px}
+.auth-form-card>*{position:relative;z-index:1}
+.auth-card-top{margin-bottom:17px}
+.auth-card-top h2{color:#fff;font-size:48px;letter-spacing:-.1em;line-height:.9;margin:7px 0 0}
+.auth-card-top .eyebrow{color:#9fe5f0}
+.auth-card-top .icon-button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#d9f5fb}
+.auth-mode-toggle{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);margin-bottom:20px}
+.auth-mode-toggle button{color:#8fa7bd}
+.auth-mode-toggle button.active{background:rgba(159,229,240,.18);box-shadow:inset 0 0 0 1px rgba(159,229,240,.25);color:#fff}
+.auth-form{gap:12px}
+.auth-form .field label{color:#b8cadb;font-size:10px}
+.auth-form .field input{background:rgba(3,11,22,.56);border:1px solid rgba(166,210,226,.18);border-radius:12px;color:#fff;min-height:44px;padding:0 13px}
+.auth-form .field input:focus{border-color:#9fe5f0;box-shadow:0 0 0 3px rgba(159,229,240,.12)}
+.auth-form .button-dark{background:#9fe5f0;color:#071322;min-height:46px}
+.auth-form .button-dark:hover{background:#c4f5fb;box-shadow:0 12px 30px rgba(159,229,240,.2)}
+.auth-hint{color:#7890a8;margin-top:13px}
+.auth-screen .form-error{background:rgba(255,112,94,.13);border:1px solid rgba(255,130,109,.25);color:#ffc2b8}
+@keyframes auth-card-in{from{opacity:0;transform:translateY(20px) rotateX(4deg) scale(.97)}to{opacity:1;transform:translateY(0) rotateX(0) scale(1)}}
+@keyframes auth-orbit{to{transform:rotate(360deg)}}
+@media(max-width:640px){.auth-screen{padding:16px}.auth-stage{min-height:calc(100vh - 32px)}.auth-brand{left:0;top:0}.auth-form-card{border-radius:22px;padding:62px 20px 24px}.auth-card-top h2{font-size:43px}}
+@media(prefers-reduced-motion:reduce){.auth-form-card,.auth-screen:after{animation:none}}
