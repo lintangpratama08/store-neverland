@@ -148,3 +148,22 @@ button:focus-visible,a:focus-visible{outline:2px solid #527af5;outline-offset:3p
 @keyframes auth-orbit{to{transform:rotate(360deg)}}
 @media(max-width:640px){.auth-screen{padding:16px}.auth-stage{min-height:calc(100vh - 32px)}.auth-brand{left:0;top:0}.auth-form-card{border-radius:22px;padding:62px 20px 24px}.auth-card-top h2{font-size:43px}}
 @media(prefers-reduced-motion:reduce){.auth-form-card,.auth-screen:after{animation:none}}
+
+/* Store-only admin workspace */
+.store-admin-workspace .sidebar{background:#07111f}
+.store-admin-badge{align-items:center;color:#9fe5f0;display:flex;font:9px 'DM Mono',monospace;gap:7px;letter-spacing:.1em;margin:24px 0 6px}
+.store-admin-badge .live-dot{height:6px;width:6px}
+.store-admin-workspace .workspace-topbar h1{letter-spacing:-.07em}
+.store-admin-stats .dash-stat{animation:store-admin-rise .5s ease both}
+.store-admin-stats .dash-stat:nth-child(2){animation-delay:70ms}.store-admin-stats .dash-stat:nth-child(3){animation-delay:140ms}.store-admin-stats .dash-stat:nth-child(4){animation-delay:210ms}
+.store-admin-launchpad{margin-top:18px;overflow:hidden;position:relative}
+.store-admin-launchpad:after{border:1px solid rgba(159,229,240,.2);border-radius:50%;content:'';height:280px;position:absolute;right:-130px;top:-150px;width:280px}
+.store-admin-launchpad .panel-head,.store-admin-actions{position:relative;z-index:1}
+.store-admin-launchpad .panel-head h3{margin-top:7px}
+.store-admin-actions{display:grid;gap:10px;grid-template-columns:repeat(3,1fr);margin-top:18px}
+.store-admin-actions button{align-items:center;background:#f7f9fc;border:1px solid #e2e8f0;border-radius:14px;color:var(--ink);display:flex;gap:12px;min-height:86px;padding:15px;text-align:left;transition:.25s ease}
+.store-admin-actions button:hover{border-color:#9fe5f0;box-shadow:0 14px 30px rgba(21,55,87,.1);transform:translateY(-3px)}
+.store-admin-actions button>svg:first-child{color:#3d8ba9;flex:0 0 auto}.store-admin-actions button>svg:last-child{color:#8291a5;margin-left:auto}
+.store-admin-actions span{display:grid;gap:5px;min-width:0}.store-admin-actions strong{font-size:12px}.store-admin-actions small{color:var(--muted);font-size:10px;line-height:1.4}
+@keyframes store-admin-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.store-admin-actions{grid-template-columns:1fr}.store-admin-actions button{min-height:72px}.store-admin-heading{align-items:flex-start;gap:15px}.store-admin-heading .button{font-size:10px;padding:10px}.store-admin-workspace .workspace-content{padding:18px 14px 35px}}
