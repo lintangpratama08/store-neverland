@@ -6,6 +6,8 @@
         <meta name="theme-color" content="#0e1830">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="neverland-whatsapp" content="{{ preg_replace('/\D+/', '', (string) config('services.whatsapp.number')) }}">
+        <meta name="neverland-whatsapp-admin-one" content="{{ preg_replace('/\D+/', '', (string) config('services.whatsapp.admin_one')) }}">
+        <meta name="neverland-whatsapp-admin-two" content="{{ preg_replace('/\D+/', '', (string) config('services.whatsapp.admin_two')) }}">
         <meta name="description" content="Neverland Store — marketplace akun Total Football siap main.">
         <title>Neverland Store</title>
         @viteReactRefresh

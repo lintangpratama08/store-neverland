@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\AccountListingResource;
-use App\Models\AccountListingImage;
 use App\Models\AccountListing;
+use App\Models\AccountListingImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -20,7 +20,7 @@ class AccountListingController extends Controller
 
     public function index()
     {
-        return AccountListingResource::collection(AccountListing::query()->with('images')->orderBy('sort_order')->latest('id')->get());
+        return AccountListingResource::collection(AccountListing::query()->with('images')->withCount('sales')->orderBy('sort_order')->latest('id')->get());
     }
 
     public function store(Request $request)

@@ -29,6 +29,7 @@ class OrderController extends Controller
             'items.*.options.*' => ['nullable', 'string', 'max:80'],
             'customer_name' => ['required', 'string', 'max:100'],
             'whatsapp' => ['required', 'string', 'min:8', 'max:32'],
+            'admin_whatsapp' => ['nullable', 'string', 'min:8', 'max:32'],
             'note' => ['nullable', 'string', 'max:1000'],
         ]);
 
@@ -64,7 +65,9 @@ class OrderController extends Controller
             return [$order, $items];
         });
         [$order, $items] = $items;
-        $number = preg_replace('/\D+/', '', (string) config('services.whatsapp.number'));
+        $allowedNumbers = collect([config('services.whatsapp.admin_one'), config('services.whatsapp.admin_two'), config('services.whatsapp.number')])->filter()->map(fn ($value): string => preg_replace('/\D+/', '', (string) $value))->filter()->values();
+        $requestedNumber = preg_replace('/\D+/', '', (string) ($data['admin_whatsapp'] ?? ''));
+        $number = $allowedNumbers->contains($requestedNumber) ? $requestedNumber : $allowedNumbers->first();
         $lines = collect($items)->map(fn (array $item): string => '- '.$item['name'].' x'.$item['quantity'].($item['options'] ? ' ('.collect($item['options'])->map(fn ($value, $key) => $key.': '.$value)->implode(', ').')' : ''))->implode("\n");
         $message = "Halo Neverland, saya ingin memesan ({$order->order_number})\nNama: {$order->customer_name}\nWhatsApp: {$order->whatsapp}\nPesanan:\n{$lines}\nTotal: Rp ".number_format($order->total(), 0, ',', '.')."\nCatatan: ".($order->note ?: '-');
 

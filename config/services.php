@@ -37,6 +37,8 @@ return [
 
     'whatsapp' => [
         'number' => env('WHATSAPP_NUMBER', '6281234567890'),
+        'admin_one' => env('WHATSAPP_ADMIN_ONE', env('WHATSAPP_NUMBER', '6281234567890')),
+        'admin_two' => env('WHATSAPP_ADMIN_TWO', env('WHATSAPP_NUMBER', '6281234567890')),
     ],
 
 ];

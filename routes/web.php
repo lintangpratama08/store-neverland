@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MediaAssetController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournamentController;
@@ -57,6 +58,9 @@ Route::prefix('api')->middleware('throttle:api')->group(function (): void {
         Route::get('admin/sponsors', [SponsorController::class, 'index']);
         Route::apiResource('sponsors', SponsorController::class)->except(['index', 'show']);
         Route::get('admin/orders', [OrderController::class, 'index']);
+        Route::get('admin/sales', [SaleController::class, 'index']);
+        Route::post('admin/sales', [SaleController::class, 'store']);
+        Route::delete('sales/{sale}', [SaleController::class, 'destroy']);
         Route::apiResource('orders', OrderController::class)->except(['index', 'show', 'store']);
     });
 });

@@ -20,6 +20,7 @@ class ProductResource extends JsonResource
             'variants' => $this->variants ?: [],
             'sort_order' => $this->sort_order,
             'is_active' => $this->is_active,
+            'sold_count' => (int) ($this->sold_count ?? 0),
         ];
     }
 }

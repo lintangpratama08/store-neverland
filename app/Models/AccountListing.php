@@ -29,4 +29,9 @@ class AccountListing extends Model
     {
         return $this->hasMany(AccountListingImage::class)->orderBy('sort_order')->orderBy('id');
     }
+
+    public function sales(): HasMany
+    {
+        return $this->hasMany(Sale::class, 'source_id')->where('source_type', 'account');
+    }
 }

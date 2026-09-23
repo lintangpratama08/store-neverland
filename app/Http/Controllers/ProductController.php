@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        return ProductResource::collection(Product::query()->orderBy('sort_order')->latest('id')->get());
+        return ProductResource::collection(Product::query()->withCount('sales')->orderBy('sort_order')->latest('id')->get());
     }
 
     public function store(Request $request)
